@@ -1,6 +1,6 @@
 # oi-packer
 
-This repository h9lds tools necesearry to build OpenIndiana [Vagrant](https://www.vagrantup.com/) boxes.
+This repository holds tools necesearry to build OpenIndiana [Vagrant](https://www.vagrantup.com/) boxes.
 
 ## Requierements
 To build OpenIndiana Vagrant boxes, we need the following tools:
