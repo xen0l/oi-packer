@@ -2,10 +2,10 @@
   "variables": {
     "vm_name": "oi-hipster",
 
-    "oi_version": "20161030",
+    "oi_version": "20170502",
 
-    "iso_url": "http://mirror.ynet.sk/openindiana/isos/hipster/latest/OI-hipster-text-20161030.iso",
-    "iso_checksum": "6cb530313fa029621b7cb7e6f95ee6d7135d6e16efc170074bec081656e72749",
+    "iso_url": "http://mirror.ynet.sk/openindiana/isos/hipster/latest/OI-hipster-text-20170502.iso",
+    "iso_checksum": "0b3f27331220b27afdf85f0b3cd851f87581a209a2e67093298da88995e26976",
 
     "ssh_username": "root",
     "ssh_password": "template"
@@ -62,7 +62,7 @@
       "type": "virtualbox-iso",
       "hard_drive_interface": "sata",
       "vboxmanage": [
-        [ "modifyvm", "{{.Name}}", "--memory", "2048" ],
+        [ "modifyvm", "{{.Name}}", "--memory", "4096" ],
         [ "modifyvm", "{{.Name}}", "--cpus", "1" ],
         [ "modifyvm", "{{.Name}}", "--vram", "16" ],
         [ "modifyvm", "{{.Name}}", "--nictype1", "82545EM" ],
