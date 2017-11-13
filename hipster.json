@@ -2,10 +2,10 @@
   "variables": {
     "vm_name": "oi-hipster",
 
-    "oi_version": "20170502",
+    "oi_version": "20171031",
 
-    "iso_url": "http://mirror.ynet.sk/openindiana/isos/hipster/latest/OI-hipster-text-20170502.iso",
-    "iso_checksum": "0b3f27331220b27afdf85f0b3cd851f87581a209a2e67093298da88995e26976",
+    "iso_url": "http://dlc.openindiana.org/isos/hipster/20171031/OI-hipster-text-20171031.iso",
+    "iso_checksum": "e2e22803e953945618e39ca7d646e21b296f8dc4f1e68fe2e2f37eb999434976",
 
     "ssh_username": "root",
     "ssh_password": "template"
