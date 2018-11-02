@@ -2,10 +2,10 @@
   "variables": {
     "vm_name": "oi-hipster",
 
-    "oi_version": "20171031",
+    "oi_version": "20181023",
 
-    "iso_url": "http://dlc.openindiana.org/isos/hipster/20171031/OI-hipster-text-20171031.iso",
-    "iso_checksum": "e2e22803e953945618e39ca7d646e21b296f8dc4f1e68fe2e2f37eb999434976",
+    "iso_url": "http://dlc.openindiana.org/isos/hipster/20181023/OI-hipster-text-20181023.iso",
+    "iso_checksum": "8f5719ec0e3f4f0481dfa78cc564ebd8c8a533f861663a5c75ce4d5d58459af1",
 
     "ssh_username": "root",
     "ssh_password": "template"
@@ -36,7 +36,11 @@
         "<wait10><wait10><wait10><wait10><wait10><wait10>",
         "<wait10><wait10><wait10><wait10><wait10><wait10>",
         "<wait10><wait10><wait10><wait10><wait10><wait10>",
+        "<wait10><wait10><wait10><wait10><wait10><wait10>",
+        "<wait10><wait10><wait10><wait10><wait10><wait10>",
+        "<wait10><wait10><wait10><wait10><wait10><wait10>",
         "<f8><wait>",
+        "<wait10><wait10><wait10><wait10><wait10><wait10>",
         "<wait10><wait10><wait10><wait10><wait10><wait10>",
         "<wait10><wait10><wait10><wait10><wait10><wait10>",
         "<wait10><wait10><wait10><wait10><wait10><wait10>",
