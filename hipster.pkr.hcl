@@ -1,4 +1,9 @@
-variable "oi_version" {
+variable "build_version" {
+  type = string
+  default = "20200504"
+}
+
+variable "iso_version" {
   type = string
   default = "20200504"
 }
@@ -19,7 +24,7 @@ variable "ssh_password" {
 }
 
 locals {
-  iso_url = "http://dlc.openindiana.org/isos/hipster/${var.oi_version}/OI-hipster-text-${var.oi_version}.iso"
+  iso_url = "http://dlc.openindiana.org/isos/hipster/${var.iso_version}/OI-hipster-text-${var.iso_version}.iso"
   boot_command_installer = [
     "47<enter><wait5>",
     "7<enter><wait5><wait5><wait5><wait5>",
@@ -82,7 +87,7 @@ source "qemu" "oi-hipster" {
   disk_size = local.disk_size
   iso_checksum = var.iso_checksum
   iso_url =  local.iso_url
-  iso_checksum_type = local.iso_checksum_type
+  //iso_checksum_type = local.iso_checksum_type
   shutdown_command = local.shutdown_command
   ssh_username = var.ssh_username
   ssh_password = var.ssh_password
@@ -110,7 +115,7 @@ source "virtualbox-iso" "oi-hipster" {
   disk_size = local.disk_size
   iso_checksum = var.iso_checksum
   iso_url = local.iso_url
-  iso_checksum_type = local.iso_checksum_type
+  //iso_checksum_type = local.iso_checksum_type
   shutdown_command = local.shutdown_command
   ssh_username = var.ssh_username
   ssh_password = var.ssh_password
@@ -145,7 +150,7 @@ build {
 
   post-processor "vagrant" {
     compression_level = 9
-    output = "OI-hipster-${var.oi_version}-{{.Provider}}.box"
+    output = "OI-hipster-${var.build_version}-{{.Provider}}.box"
   }
 }
 
@@ -173,6 +178,6 @@ build {
 
   post-processor "vagrant" {
     compression_level = 9
-    output = "OI-hipster-${var.oi_version}-{{.Provider}}.box"
+    output = "OI-hipster-${var.build_version}-{{.Provider}}.box"
   }
 }

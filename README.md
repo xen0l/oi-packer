@@ -21,7 +21,7 @@ Please note, that box building works only on platforms where packer runs.
 ```bash
 git clone https://github.com/OpenIndiana/oi-packer.git && \
 cd oi-packer && \
-packer build hipster.pkr.hcl
+packer build -parallel-builds=1 hipster.pkr.hcl
 ```
 
 ## Testing built boxes
