@@ -1,3 +1,4 @@
+# Warning do not run this makefile roughly 20 minutes before midnight.
 BUILD_VERSION=$(shell date +%Y%m%d)
 VAGRANT=vagrant
 REPO="openindiana/hipster"
