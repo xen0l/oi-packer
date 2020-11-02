@@ -1,16 +1,16 @@
 variable "build_version" {
   type = string
-  default = "20200504"
+  default = "20201031"
 }
 
 variable "iso_version" {
   type = string
-  default = "20200504"
+  default = "20201031"
 }
 
 variable "iso_checksum" {
   type = string
-  default = "99b34985b88ef301f4836fcc0a06a255821e6c4180e6bbe2ad293d795d63fda4"
+  default = "b4b40dbb2c69eef759e8e6fda5fa262d27ee4867a827c2d77de0f8d42c4f8a5e"
 }
 
 variable "ssh_username" {
