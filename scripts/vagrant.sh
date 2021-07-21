@@ -30,3 +30,11 @@ chown -R ${VAGRANT_USER}:${VAGRANT_USER} ${VAGRANT_HOME}/.ssh
 
 echo '==> Recording box config date'
 date > /etc/vagrant_box_build_time
+
+echo '==> Set DNS to known non interupting defaults'
+# See https://wiki.ipfire.org/dns/public-servers for details
+# Chosen servers are Digitalcourage e.V. and Cloudflare
+cat << EOF > /etc/resolv.conf
+nameserver 46.182.19.48
+nameserver 1.1.1.1
+EOF
