@@ -10,7 +10,7 @@ test: test-virtualbox test-libvirt
 
 all: build test
 
-release: build test publish
+release: build publish
 
 publish: publish-virtualbox publish-libvirt
 
