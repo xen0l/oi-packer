@@ -1,0 +1,18 @@
+#cloud-config
+
+users:
+  - name: toasty
+    sudo: "ALL=(ALL) NOPASSWD:ALL"
+    ssh_authorized_keys:
+      - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILcp4Wgea5V8N750xcRGil1rrdd+mCpwYBspNwwb45SN till.wegmueller@openflowlabs.com"
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQBmEXyfBHRiQogrAEgFp8Lr1TDEKdRRcpwqHOiujzTAFqszxutMPzuFlyU0Ljh28VqeDD9cIyS6VGfKG3iASQbIZd61yE0NHPNC6IPTFTggGK+3PzKt4T+t1ZdIhdrCGcsrq8c+44kSyIutvbruB0UmRjq4XqqkCDFEZMzBF/KUcu0M7oSEawFuzbtl7xoaDY83F7+HXTxbBKuRwSJw58d8MqsI7KlW6zUKJi0bgmYJOFjjDLPVTo7lqdNYfTRAHZYaCUADfrUqBCOLHSDET1Zrs3ibr6l8oMqOvctfwvuGpNT8vs05Z0P/ETUiZ/SzTyvoRyxXG0JTKlNSRmxcYA2J till.wegmueller@openflowlabs.com"
+    groups: [admin]
+    lock_passwd: false
+    shell: "/usr/bin/bash"
+
+package_update: true
+package_upgrade: true
+
+growpart:
+  mode: auto
+  devices: ['/']

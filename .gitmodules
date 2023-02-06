@@ -1,0 +1,3 @@
+[submodule "metadata-agent"]
+	path = metadata-agent
+	url = git@github.com:Toasterson/metadata-agent.git
