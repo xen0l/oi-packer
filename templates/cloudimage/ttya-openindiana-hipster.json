@@ -16,6 +16,10 @@
 
         { "t": "include", "name": "common" },
 
+        {"t": "create_dataset", "name": "export", "mountpoint": "/export"},
+
+        {"t": "create_dataset", "name": "export/home", "mountpoint": "/export/home"},
+        
         { "t": "ensure_file", "file": "/boot/conf.d/console",
             "src": "boot_console.ttya",
             "owner": "root", "group": "root", "mode": "644" },
@@ -31,7 +35,7 @@
         { "t": "shadow", "username": "root", "password":
             "$5$kr1VgdIt$OUiUAyZCDogH/uaxH71rMeQxvpDEY2yX.x0ZQRnmeb9" },
 
-	{"t": "include", "name": "metadata"},
+        {"t": "include", "name": "metadata"},
 
         { "t": "include", "name": "finalise" }
     ]

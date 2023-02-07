@@ -9,3 +9,4 @@ output/
 /etc/config.sh
 
 /templates/files/metadata
+/templates/files/useragent

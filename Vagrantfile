@@ -76,6 +76,7 @@ Vagrant.configure("2") do |config|
             developer/gcc-10 \
             system/library/gcc-10-compat-links \
             jq
+        zfs create -o mountpoint=/img rpool/images
     SHELL
 
   config.vm.provision "shell", privileged: false, inline: <<-SHELL
@@ -88,9 +89,14 @@ Vagrant.configure("2") do |config|
 target-dir = "/export/home/vagrant/.cargo/target"
 EOF
 
+    source ~/.cargo/env
+
     (cd /vagrant/image-builder && cargo install --path .)
 
     (cd /vagrant/metadata-agent && cargo build --release)
+
+    cp ~/.cargo/target/release/metadata /vagrant/templates/files/
+    cp ~/.cargo/target/release/useragent /vagrant/templates/files/
   SHELL
 
 end
