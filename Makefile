@@ -16,10 +16,13 @@ publish: publish-virtualbox publish-libvirt
 
 build: OI-hipster-$(BUILD_VERSION)-virtualbox.box OI-hipster-$(BUILD_VERSION)-libvirt.box
 
-OI-hipster-$(BUILD_VERSION)-virtualbox.box:
+init:
+	$(PACKER) init -upgrade hipster.pkr.hcl
+
+OI-hipster-$(BUILD_VERSION)-virtualbox.box: init
 	$(PACKER) build -only=virtualbox-iso.oi-hipster -var "build_version=$(BUILD_VERSION)" -parallel-builds=1 hipster.pkr.hcl
 
-OI-hipster-$(BUILD_VERSION)-libvirt.box:
+OI-hipster-$(BUILD_VERSION)-libvirt.box: init
 	$(PACKER) build -only=qemu.oi-hipster -var "build_version=$(BUILD_VERSION)" -parallel-builds=1 hipster.pkr.hcl
 
 test-%: OI-hipster-$(BUILD_VERSION)-%.box
