@@ -8,7 +8,7 @@ env:
 
 jobs:
   packer:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     name: Run Packer
     steps:
       - name: Checkout
@@ -20,6 +20,6 @@ jobs:
         with:
           version: ${{ env.PRODUCT_VERSION }}
 
-      - name: Run `packer init`
-        id: init
+      - name: Run `make release`
+        id: release
         run: "make release"
