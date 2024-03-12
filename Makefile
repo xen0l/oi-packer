@@ -37,7 +37,7 @@ test-%: OI-hipster-$(BUILD_VERSION)-%.box
 	rm Vagrantfile
 	touch test-$(*)
 
-publish-%:
+publish-%: OI-hipster-$(BUILD_VERSION)-%.box
 	vagrant cloud publish -r "$(REPO)" "$(BUILD_VERSION)" $(*) "OI-hipster-$(BUILD_VERSION)-$(*).box"
 	touch publish-$(*)
 

@@ -1,0 +1,82 @@
+---
+- name: Install lxbuilders
+  hosts: lxbuilders
+
+  tasks:
+    - name: Add hashicorp repository
+      block:
+        - name: hashicorp repo | apt key
+          ansible.builtin.get_url:
+            url: https://apt.releases.hashicorp.com/gpg
+            dest: /usr/share/keyrings/hashicorp-archive-keyring.asc
+        - name: hashicorp repo | apt source
+          ansible.builtin.apt_repository:
+            repo: "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.asc] https://apt.releases.hashicorp.com jammy main"
+            state: present
+            update_cache: yes
+
+    - name: Install vagrant
+      ansible.builtin.apt:
+        name: vagrant
+        state: latest
+
+    - name: Add virtualbox repository
+      block:
+        - name: virtualbox repo | apt key
+          ansible.builtin.get_url:
+            url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
+            dest: /usr/share/keyrings/oracle-virtualbox-2016.asc
+
+        - name: virtualbox repo | apt source
+          ansible.builtin.apt_repository:
+            repo: "deb [arch=amd64 signed-by=/usr/share/keyrings/oracle-virtualbox-2016.asc] https://download.virtualbox.org/virtualbox/debian jammy contrib"
+            state: present
+            update_cache: yes
+
+    - name: Install virtualbox
+      ansible.builtin.apt:
+        state: latest
+        pkg: 
+          - virtualbox-7.0
+          - linux-headers-generic
+
+    - name: Install libvirt
+      ansible.builtin.apt:
+        state: latest
+        pkg:
+          - bridge-utils
+          - qemu-kvm
+          - virtinst
+          - libvirt-daemon
+
+    - name: Add docker repository
+      block:
+        - name: docker repo | apt key
+          ansible.builtin.get_url:
+            url: https://download.docker.com/linux/ubuntu/gpg
+            dest: /etc/apt/keyrings/docker.asc
+        - name: docker repo | apt source
+          ansible.builtin.apt_repository:
+            repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu jammy stable"
+            state: present
+            update_cache: yes
+
+    - name: Install docker
+      ansible.builtin.apt:
+        pkg:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
+
+    - name: Install packer
+      ansible.builtin.apt:
+        pkg:
+          - packer
+
+    - name: Remove useless packages from the cache
+      ansible.builtin.apt:
+        autoclean: yes
+        autoremove: yes
+        clean: true
